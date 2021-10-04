@@ -17,7 +17,10 @@ function contains(cell) {
   });
 }
 
-const printCell = (cell, state) => {};
+const printCell = (cell, state) => {
+  const boolean = contains.call(state, cell);
+  return boolean ? '\u25A3' : '\u25A2';
+};
 
 const corners = (state = []) => {};
 
