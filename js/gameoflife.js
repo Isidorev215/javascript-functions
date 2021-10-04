@@ -57,11 +57,14 @@ const printCells = (state) => {
 
 const getNeighborsOf = ([x, y]) => [
   [x-1, y+1], [x, y+1], [x+1, y+1],
-  [x-1, y],     [x+1, y],
+  [x-1, y],             [x+1, y],
   [x-1, y-1], [x, y-1], [x+1, y-1] 
 ];
 
-const getLivingNeighbors = (cell, state) => {};
+const getLivingNeighbors = (cell, state) => {
+  return getNeighborsOf(cell).filter(oneNeighbor => contains.bind(state)(oneNeighbor));
+  // return getNeighborsOf(cell).filter(oneNeighbor => contains.call(state, oneNeighbor)); // call still does the same as bind
+};
 
 const willBeAlive = (cell, state) => {};
 
