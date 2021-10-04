@@ -66,7 +66,14 @@ const getLivingNeighbors = (cell, state) => {
   // return getNeighborsOf(cell).filter(oneNeighbor => contains.call(state, oneNeighbor)); // call still does the same as bind
 };
 
-const willBeAlive = (cell, state) => {};
+const willBeAlive = (cell, state) => {
+  const livingNeighbors = getLivingNeighbors(cell, state);
+  if(livingNeighbors.length === 3 || (livingNeighbors.length === 2 && contains.call(state, cell))){
+    return true;
+  }else{
+    return false;
+  }
+};
 
 const calculateNext = (state) => {};
 
