@@ -22,7 +22,25 @@ const printCell = (cell, state) => {
   return boolean ? '\u25A3' : '\u25A2';
 };
 
-const corners = (state = []) => {};
+const corners = (state = []) => {
+  if(state.length === 0){
+    return {
+      topRight: [0, 0],
+      bottomLeft: [0, 0]
+    }
+  }
+
+  const x_values = state.map(([x, y]) => {
+    return x;
+  });
+  const y_values = state.map(([x, y]) => {
+    return y;
+  });
+  return {
+    topRight: [Math.max(...x_values), Math.max(...y_values)],
+    bottomLeft: [Math.min(...x_values), Math.min(...y_values)]
+  }
+};
 
 const printCells = (state) => {};
 
